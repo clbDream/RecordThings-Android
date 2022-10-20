@@ -1,7 +1,7 @@
 package com.clb.recordthings_android.ui.activity
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.clb.recordthings_android.R
 
 class MainActivity : AppCompatActivity() {
