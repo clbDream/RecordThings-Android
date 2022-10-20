@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "RecordThings-Android"
 include ':app'
+include ':library:base'
+include ':library:widget'

@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">RecordThings-Android</string>
+    <string name="app_name">事迹</string>
+    <string name="add">添加</string>
+    <string name="del">删除</string>
 </resources>
