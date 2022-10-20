@@ -143,7 +143,7 @@ abstract class BaseAdapter<VH : BaseAdapter<VH>.BaseViewHolder> (private val con
             return itemView
         }
 
-        open fun <V : View?> findViewById(@IdRes id: Int): V {
+        open fun <V : View?> findViewById(@IdRes id: Int): V? {
             return getItemView().findViewById(id)
         }
     }
@@ -205,7 +205,7 @@ abstract class BaseAdapter<VH : BaseAdapter<VH>.BaseViewHolder> (private val con
     private fun checkRecyclerViewState() {
         if (recyclerView != null) {
             // 必须在 RecyclerView.setAdapter() 之前设置监听
-            throw IllegalStateException("必须在 RecyclerView.setAdapter() 之前设置监听")
+            throw IllegalStateException("are you ok?")
         }
     }
 

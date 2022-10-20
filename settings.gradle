@@ -1,22 +1,5 @@
-pluginManagement {
-    repositories {
-        // 阿里云云效仓库（Gradle 插件）：https://maven.aliyun.com/mvn/guide
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
-        gradlePluginPortal()
-        google()
-        mavenCentral()
-    }
-}
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        // 友盟远程仓库：https://info.umeng.com/detail?id=443&cateId=1
-        maven { url 'https://repo1.maven.org/maven2' }
-        google()
-        mavenCentral()
-    }
-}
 rootProject.name = "RecordThings-Android"
 include ':app'
 include ':library:base'
 include ':library:widget'
+include ':library:umeng'

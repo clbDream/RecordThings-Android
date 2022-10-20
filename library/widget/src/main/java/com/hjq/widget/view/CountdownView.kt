@@ -17,7 +17,7 @@ class CountdownView @JvmOverloads constructor(
     companion object {
 
         /** 秒数单位文本 */
-        private const val TIME_UNIT: String = "S后重新获取"
+        private const val TIME_UNIT: String = "S"
     }
 
     /** 倒计时秒数 */
