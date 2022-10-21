@@ -2,11 +2,11 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "ac649487947457de7671b732ab2d7961",
+    "identityHash": "5734978869dc32b2a79c0876bb6a1385",
     "entities": [
       {
         "tableName": "t_inspiration",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `content` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `content` TEXT, `create_time` INTEGER NOT NULL, `update_time` INTEGER NOT NULL, `item_bg_color` TEXT NOT NULL, `text_color` TEXT NOT NULL)",
         "fields": [
           {
             "fieldPath": "id",
@@ -19,6 +19,30 @@
             "columnName": "content",
             "affinity": "TEXT",
             "notNull": false
+          },
+          {
+            "fieldPath": "create_time",
+            "columnName": "create_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "update_time",
+            "columnName": "update_time",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "item_bg_color",
+            "columnName": "item_bg_color",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "text_color",
+            "columnName": "text_color",
+            "affinity": "TEXT",
+            "notNull": true
           }
         ],
         "primaryKey": {
@@ -34,7 +58,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'ac649487947457de7671b732ab2d7961')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '5734978869dc32b2a79c0876bb6a1385')"
     ]
   }
 }

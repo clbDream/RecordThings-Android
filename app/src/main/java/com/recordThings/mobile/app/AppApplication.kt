@@ -26,6 +26,7 @@ import com.hjq.http.EasyConfig
 import com.hjq.toast.ToastUtils
 import com.hjq.umeng.UmengClient
 import com.recordThings.mobile.db.AppDataBase
+import com.recordThings.mobile.db.DbHelper
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
@@ -44,18 +45,8 @@ class AppApplication : Application() {
     @Log("启动耗时")
     override fun onCreate() {
         super.onCreate()
-        initDb()
+        DbHelper.init(applicationContext)
         initSdk(this)
-    }
-
-    /**
-     * 初始化数据库
-     */
-    private fun initDb() {
-        db =
-            Room.databaseBuilder(applicationContext, AppDataBase::class.java, "Record_Things_db")
-                .build()
-
     }
 
     override fun onLowMemory() {
@@ -71,8 +62,6 @@ class AppApplication : Application() {
     }
 
     companion object {
-
-        lateinit var db: AppDataBase
 
         /**
          * 初始化一些第三方框架

@@ -7,19 +7,20 @@ import com.recordThings.mobile.R
 import com.recordThings.mobile.aop.SingleClick
 import com.recordThings.mobile.app.AppActivity
 import com.recordThings.mobile.app.AppApplication
+import com.recordThings.mobile.db.DbHelper
 import kotlin.concurrent.thread
 
 class MainActivity : AppActivity() {
 
     private val addInspiration: ShapeButton? by lazy { findViewById(R.id.add_inspiration) }
-    private val linggan_num: TextView? by lazy { findViewById(R.id.linggan_num) }
+    private val lingganNum: TextView? by lazy { findViewById(R.id.linggan_num) }
 
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
     override fun initView() {
-        setOnClickListener(addInspiration)
+        setOnClickListener(addInspiration,lingganNum)
     }
 
     override fun initData() {
@@ -36,6 +37,9 @@ class MainActivity : AppActivity() {
             addInspiration -> {
                 startActivity(EditInspirationActivity::class.java)
             }
+            lingganNum->{
+                startActivity(InspirationListActivity::class.java)
+            }
             else -> {}
         }
     }
@@ -43,9 +47,9 @@ class MainActivity : AppActivity() {
     override fun onResume() {
         super.onResume()
         thread {
-            val allInspirationNum = AppApplication.db.inspirationDao().getAllInspirationNum()
+            val allInspirationNum = DbHelper.db.inspirationDao().getAllInspirationNum()
             runOnUiThread {
-                linggan_num?.text = allInspirationNum.toString()
+                lingganNum?.text = allInspirationNum.toString()
             }
         }
     }

@@ -6,8 +6,9 @@ import android.view.View
 import com.hjq.shape.view.ShapeEditText
 import com.recordThings.mobile.R
 import com.recordThings.mobile.app.AppActivity
-import com.recordThings.mobile.app.AppApplication
+import com.recordThings.mobile.db.DbHelper
 import com.recordThings.mobile.db.entities.Inspiration
+import com.recordThings.mobile.other.ItemColors
 import kotlin.concurrent.thread
 
 class EditInspirationActivity : AppActivity() {
@@ -46,8 +47,12 @@ class EditInspirationActivity : AppActivity() {
             toast("您还没有输入内容哦!")
             return
         }
+
+        val itemColor = ItemColors.genItemColor()
+        inspiration.item_bg_color = itemColor.itemBgColor
+        inspiration.text_color = itemColor.textColor
         thread {
-            val l = AppApplication.db.inspirationDao().addInspiration(inspiration)
+            val l = DbHelper.db.inspirationDao().addInspiration(inspiration)
             if (l > 0) {
                 toast("保存成功")
                 finish()

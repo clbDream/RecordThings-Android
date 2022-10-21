@@ -249,6 +249,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.activity.EditInspirationActivity" />
+        <activity android:name=".ui.activity.InspirationListActivity" />
 
     </application>
 

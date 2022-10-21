@@ -26,6 +26,12 @@ interface InspirationDao {
     abstract fun delInspiration(inspiration: Inspiration): Int
 
     /**
+     * 查询灵感
+     */
+    @Query("select * from t_inspiration")
+    fun getInspirationList(): List<Inspiration>
+
+    /**
      * 查询灵感数量
      */
     @Query("select count(*) from t_inspiration")
