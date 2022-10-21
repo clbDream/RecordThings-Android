@@ -56,10 +56,6 @@ android {
             minifyEnabled false
             // 签名信息配置
             signingConfig signingConfigs.config
-            // 添加清单占位符
-            addManifestPlaceholders([
-                    'app_name'    :    '事迹 Debug 版'
-            ])
             // 调试模式下只保留一种架构的 so 库，提升打包速度
             ndk {
                 abiFilters 'armeabi-v7a'
@@ -69,10 +65,6 @@ android {
         preview.initWith(debug)
         preview {
             applicationIdSuffix ''
-            // 添加清单占位符
-            addManifestPlaceholders([
-                    'app_name'    :    '事迹 Preview 版'
-            ])
         }
 
         release {
@@ -87,10 +79,6 @@ android {
             minifyEnabled true
             // 签名信息配置
             signingConfig signingConfigs.config
-            // 添加清单占位符
-            addManifestPlaceholders([
-                    'app_name'    :    '@string/app_name'
-            ])
             // 仅保留两种架构的 so 库，根据 Bugly 统计得出
             ndk {
                 // armeabi：万金油架构平台（占用率：0%）
