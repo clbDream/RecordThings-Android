@@ -9,6 +9,8 @@ import android.os.Build
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
+import androidx.room.Database
+import androidx.room.Room
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonToken
 import com.hjq.bar.TitleBar
@@ -23,6 +25,7 @@ import com.hjq.gson.factory.GsonFactory
 import com.hjq.http.EasyConfig
 import com.hjq.toast.ToastUtils
 import com.hjq.umeng.UmengClient
+import com.recordThings.mobile.db.AppDataBase
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
@@ -41,7 +44,18 @@ class AppApplication : Application() {
     @Log("启动耗时")
     override fun onCreate() {
         super.onCreate()
+        initDb()
         initSdk(this)
+    }
+
+    /**
+     * 初始化数据库
+     */
+    private fun initDb() {
+        db =
+            Room.databaseBuilder(applicationContext, AppDataBase::class.java, "Record_Things_db")
+                .build()
+
     }
 
     override fun onLowMemory() {
@@ -58,6 +72,8 @@ class AppApplication : Application() {
 
     companion object {
 
+        lateinit var db: AppDataBase
+
         /**
          * 初始化一些第三方框架
          */
@@ -66,11 +82,16 @@ class AppApplication : Application() {
             TitleBar.setDefaultStyle(TitleBarStyle())
 
             // 设置全局的 Header 构建器
-            SmartRefreshLayout.setDefaultRefreshHeaderCreator{ context: Context, layout: RefreshLayout ->
-                MaterialHeader(context).setColorSchemeColors(ContextCompat.getColor(context, R.color.common_accent_color))
+            SmartRefreshLayout.setDefaultRefreshHeaderCreator { context: Context, layout: RefreshLayout ->
+                MaterialHeader(context).setColorSchemeColors(
+                    ContextCompat.getColor(
+                        context,
+                        R.color.common_accent_color
+                    )
+                )
             }
             // 设置全局的 Footer 构建器
-            SmartRefreshLayout.setDefaultRefreshFooterCreator{ context: Context, layout: RefreshLayout ->
+            SmartRefreshLayout.setDefaultRefreshFooterCreator { context: Context, layout: RefreshLayout ->
                 SmartBallPulseFooter(context)
             }
             // 设置全局初始化器
@@ -122,9 +143,9 @@ class AppApplication : Application() {
                 .setHandler(RequestHandler(application))
                 // 设置请求重试次数
                 .setRetryCount(1)
-                .addHeader("token","666")
+                .addHeader("token", "666")
                 .addHeader("deviceOaid", UmengClient.getDeviceOaid())
-                .addHeader("versionName",  AppConfig.getVersionName())
+                .addHeader("versionName", AppConfig.getVersionName())
                 .addHeader("versionCode", AppConfig.getVersionCode().toString())
                 .into()
 
@@ -140,9 +161,11 @@ class AppApplication : Application() {
             }
 
             // 注册网络状态变化监听
-            val connectivityManager: ConnectivityManager? = ContextCompat.getSystemService(application, ConnectivityManager::class.java)
+            val connectivityManager: ConnectivityManager? =
+                ContextCompat.getSystemService(application, ConnectivityManager::class.java)
             if (connectivityManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                connectivityManager.registerDefaultNetworkCallback(object : ConnectivityManager.NetworkCallback() {
+                connectivityManager.registerDefaultNetworkCallback(object :
+                    ConnectivityManager.NetworkCallback() {
                     override fun onLost(network: Network) {
                         val topActivity: Activity? = ActivityManager.getInstance().getTopActivity()
                         if (topActivity !is LifecycleOwner) {
