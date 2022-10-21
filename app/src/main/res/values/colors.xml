@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- App 样式中引用的颜色 -->
-    <color name="common_primary_color">@color/white</color>
-    <color name="common_primary_dark_color">@color/black</color>
+    <color name="common_primary_color">#3d3e51</color>
+    <color name="common_primary_dark_color">#3d3e51</color>
     <color name="common_accent_color">#5A8DDF</color>
-    <color name="common_window_background_color">#F4F4F4</color>
+    <color name="common_window_background_color">#3d3e51</color>
     <color name="common_text_color">#333333</color>
     <color name="common_text_hint_color">@color/panda</color>
 
@@ -22,4 +22,7 @@
     <!-- 对话框取消按钮的文本颜色 -->
     <color name="common_cancel_text_color">#F44336</color>
 
+    <color name="colorTextGray">#73798c</color>
+    <color name="colorItem">#414459</color>
+    <color name="btn_bg">#9576fc</color>
 </resources>

@@ -6,6 +6,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "t_inspiration")
 data class Inspiration(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "content") val content: String?,
+    //主键
+    @PrimaryKey(autoGenerate = true) val id: Int? = null,
+    //灵感内容
+    @ColumnInfo(name = "content") var content: String? = "",
 )
