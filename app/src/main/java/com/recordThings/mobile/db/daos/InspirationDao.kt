@@ -28,7 +28,7 @@ interface InspirationDao {
     /**
      * 查询灵感
      */
-    @Query("select * from t_inspiration")
+    @Query("select * from t_inspiration order by update_time desc")
     fun getInspirationList(): List<Inspiration>
 
     /**

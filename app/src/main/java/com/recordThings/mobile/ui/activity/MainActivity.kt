@@ -2,11 +2,11 @@ package com.recordThings.mobile.ui.activity
 
 import android.view.View
 import android.widget.TextView
+import com.hjq.shape.layout.ShapeLinearLayout
 import com.hjq.shape.view.ShapeButton
 import com.recordThings.mobile.R
 import com.recordThings.mobile.aop.SingleClick
 import com.recordThings.mobile.app.AppActivity
-import com.recordThings.mobile.app.AppApplication
 import com.recordThings.mobile.db.DbHelper
 import kotlin.concurrent.thread
 
@@ -14,13 +14,14 @@ class MainActivity : AppActivity() {
 
     private val addInspiration: ShapeButton? by lazy { findViewById(R.id.add_inspiration) }
     private val lingganNum: TextView? by lazy { findViewById(R.id.linggan_num) }
+    private val layout_linggan: ShapeLinearLayout? by lazy { findViewById(R.id.layout_linggan) }
 
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
     override fun initView() {
-        setOnClickListener(addInspiration,lingganNum)
+        setOnClickListener(addInspiration, layout_linggan)
     }
 
     override fun initData() {
@@ -37,7 +38,7 @@ class MainActivity : AppActivity() {
             addInspiration -> {
                 startActivity(EditInspirationActivity::class.java)
             }
-            lingganNum->{
+            layout_linggan -> {
                 startActivity(InspirationListActivity::class.java)
             }
             else -> {}

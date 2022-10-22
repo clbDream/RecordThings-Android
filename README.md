@@ -16,8 +16,7 @@
 ## 涉及到的技能
 
 1. Kotlin
-2. Room数据库
-3. 
+2. [Room数据库](https://developer.android.google.cn/jetpack/androidx/releases/room)
 
 ## 参与人员(期待更多人的参与)
 

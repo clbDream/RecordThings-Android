@@ -10,7 +10,7 @@ object ItemColors {
 
         Color1("#03A9F4", "#FFFFFF"),
         Color2("#414459", "#73798c"),
-        Color3("#4CAF50", "#73798c"),
+        Color3("#4CAF50", "#FFFFFF"),
         Color4("#FF9800", "#FFFFFF")
     }
 
