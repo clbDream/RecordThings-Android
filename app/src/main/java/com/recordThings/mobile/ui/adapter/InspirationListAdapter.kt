@@ -40,6 +40,13 @@ class InspirationListAdapter(val mContext: Context) : AppAdapter<Inspiration>(mC
             linggan_content?.setTextColor(Color.parseColor(inspiration.text_color))
             tv_time?.setTextColor(Color.parseColor(inspiration.text_color))
 
+            getItemView().setOnClickListener {
+                val bundle = Bundle()
+                bundle.putParcelable("data",getItem(position))
+                val intent = Intent(mContext,EditInspirationActivity::class.java)
+                intent.putExtras(bundle)
+                startActivity( intent)
+            }
             getItemView().setOnLongClickListener {
                 showMenu(it,position)
                 true

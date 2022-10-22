@@ -16,12 +16,14 @@
         android:layout_height="wrap_content"
         android:textColor="@color/colorTextGray"
         android:textSize="@dimen/sp_14"
+        android:maxLines="5"
+        android:ellipsize="end"
         app:layout_constraintBottom_toTopOf="@+id/tv_time"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginBottom="@dimen/dp_10"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息" />
+        tools:text="这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息这是一段示例文本信息" />
 
     <TextView
         android:id="@+id/tv_time"

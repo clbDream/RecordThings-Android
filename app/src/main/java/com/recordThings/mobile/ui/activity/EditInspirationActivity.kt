@@ -54,14 +54,15 @@ class EditInspirationActivity : AppActivity() {
             return
         }
 
-        val itemColor = ItemColors.genItemColor()
-        inspiration.item_bg_color = itemColor.itemBgColor
-        inspiration.text_color = itemColor.textColor
         thread {
             val l = if (inspiration.id != null) {
                 //修改灵感
+                inspiration.update_time = System.currentTimeMillis()
                 DbHelper.db.inspirationDao().upDateInspiration(inspiration).toLong()
             } else {
+                val itemColor = ItemColors.genItemColor()
+                inspiration.item_bg_color = itemColor.itemBgColor
+                inspiration.text_color = itemColor.textColor
                 DbHelper.db.inspirationDao().addInspiration(inspiration)
             }
             if (l > 0) {
