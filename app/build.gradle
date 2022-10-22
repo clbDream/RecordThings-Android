@@ -2,6 +2,7 @@ apply plugin : 'com.android.application'
 apply plugin : 'android-aspectjx'
 apply plugin : 'kotlin-kapt'
 apply from : '../common.gradle'
+apply plugin: 'kotlin-parcelize'
 
 // Android 代码规范文档：https://github.com/getActivity/AndroidCodeStandard
 android {
@@ -203,6 +204,12 @@ dependencies {
 //    //Paging : https://developer.android.google.cn/topic/libraries/architecture/paging/v3-overview
 //    def paging_version = "3.1.1"
 //    implementation "androidx.paging:paging-runtime:$paging_version"
+
+    //pop弹框 https://github.com/li-xiaojun/XPopup
+    implementation 'com.github.li-xiaojun:XPopup:2.8.2'
+
+    //常用工具类
+    implementation 'com.blankj:utilcodex:1.31.0'
 
     // 多语种：https://github.com/getActivity/MultiLanguages
     // 悬浮窗：https://github.com/getActivity/XToast

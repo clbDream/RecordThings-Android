@@ -22,6 +22,12 @@ class EditInspirationActivity : AppActivity() {
     }
 
     override fun initView() {
+        val bundle = getBundle()
+        inspiration = bundle?.getParcelable("data") ?: Inspiration()
+        inspiration.content.let {
+            inputContent?.setText(it)
+            it?.length?.let { it1 -> inputContent?.setSelection(it1) }
+        }
         inputContent?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
@@ -52,7 +58,12 @@ class EditInspirationActivity : AppActivity() {
         inspiration.item_bg_color = itemColor.itemBgColor
         inspiration.text_color = itemColor.textColor
         thread {
-            val l = DbHelper.db.inspirationDao().addInspiration(inspiration)
+            val l = if (inspiration.id != null) {
+                //修改灵感
+                DbHelper.db.inspirationDao().upDateInspiration(inspiration).toLong()
+            } else {
+                DbHelper.db.inspirationDao().addInspiration(inspiration)
+            }
             if (l > 0) {
                 toast("保存成功")
                 finish()
