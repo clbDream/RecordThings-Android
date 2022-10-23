@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.hjq.shape.layout.ShapeRadioGroup
+        android:id="@+id/shapeRadioGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_20"
+        android:checkedButton="@id/rb_1"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:shape_radius="@dimen/dp_10"
+        app:shape_solidColor="@color/common_primary_color"
+        app:shape_strokeColor="#fff"
+        app:shape_strokeWidth="@dimen/dp_1">
+
+        <com.hjq.shape.view.ShapeRadioButton
+            android:id="@+id/rb_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_5"
+            android:text="待完成"
+            android:textColor="@color/colorTextGray"
+            android:textSize="@dimen/sp_15"
+            app:shape_bottomLeftRadius="@dimen/dp_10"
+            app:shape_solidCheckedColor="#673AB7"
+            app:shape_strokeCheckedColor="@color/white"
+            app:shape_strokeWidth="@dimen/dp_1"
+            app:shape_textCheckedColor="@color/white"
+            app:shape_topLeftRadius="@dimen/dp_10" />
+
+        <com.hjq.shape.view.ShapeRadioButton
+            android:id="@+id/rb_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:paddingHorizontal="@dimen/dp_10"
+            android:paddingVertical="@dimen/dp_5"
+            android:text="已完成"
+            android:textColor="@color/colorTextGray"
+            android:textSize="@dimen/sp_15"
+            app:shape_bottomRightRadius="@dimen/dp_10"
+            app:shape_solidCheckedColor="#673AB7"
+            app:shape_strokeCheckedColor="@color/white"
+            app:shape_strokeWidth="@dimen/dp_1"
+            app:shape_textCheckedColor="@color/white"
+            app:shape_topRightRadius="@dimen/dp_10" />
+    </com.hjq.shape.layout.ShapeRadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/daiban_list"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/shapeRadioGroup"
+        tools:listitem="@layout/item_daiban" />
+
+    <com.hjq.widget.view.FloatActionButton
+        android:id="@+id/btn_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_15"
+        android:layout_marginBottom="@dimen/dp_20"
+        android:background="@drawable/roll_accent_bg"
+        android:padding="@dimen/dp_20"
+        android:src="@drawable/icon_send"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

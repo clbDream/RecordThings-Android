@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <com.hjq.bar.TitleBar
+        android:id="@+id/titleBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/common_primary_color"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="编辑灵感"
+        app:rightTitle="保存"
+        app:titleColor="@color/white" />
+
+    <com.hjq.shape.view.ShapeEditText
+        android:id="@+id/input_content"
+        android:hint="有时候,一瞬间的灵感会带给你意想不到的惊喜\n(120字以内)"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:maxLength="120"
+        android:maxLines="10"
+        android:minLines="5"
+        tools:text="灵感编辑处灵感编辑处灵感编辑处灵感编辑处灵感编辑处灵感编辑处"
+        android:textSize="@dimen/sp_15"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleBar" />
+
+    <com.hjq.widget.layout.SettingBar
+        android:id="@+id/choose_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorItem"
+        app:bar_leftText="提醒时间"
+        app:bar_leftTextColor="@color/white"
+        app:bar_rightDrawable="@drawable/icon_more_right"
+        app:bar_rightText="不提醒"
+        android:layout_marginTop="10dp"
+        app:bar_rightTextColor="@color/colorTextGray"
+        app:layout_constraintTop_toBottomOf="@+id/input_content" />
+</androidx.constraintlayout.widget.ConstraintLayout>

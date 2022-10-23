@@ -250,6 +250,8 @@
         </activity>
         <activity android:name=".ui.activity.EditInspirationActivity" />
         <activity android:name=".ui.activity.InspirationListActivity" />
+        <activity android:name=".ui.activity.EditDaibanActivity" />
+        <activity android:name=".ui.activity.DaibanListActivity" />
 
     </application>
 

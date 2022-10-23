@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp"
+    android:paddingTop="10dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/colorTextGray"
+        tools:text="4月11日" />
+
+    <com.hjq.shape.layout.ShapeLinearLayout
+        android:id="@+id/ll_item_click"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:shape_solidColor="@color/colorItem"
+        app:shape_radius="@dimen/dp_5"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/daiban_content"
+                android:layout_marginEnd="@dimen/dp_10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/colorTextGray"
+                android:textSize="14sp"
+                tools:text="请客吃早点请客吃早点请客吃早点请客吃早点请客吃早点请客吃早点请客吃早点请客吃早点请客吃早点请客吃早点" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/show_tixing"
+            android:src="@drawable/icon_tixing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+    </com.hjq.shape.layout.ShapeLinearLayout>
+</LinearLayout>
