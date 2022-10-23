@@ -58,7 +58,6 @@ class EditDaibanActivity : AppActivity() {
             toast("您还没有输入内容哦!")
             return
         }
-
         thread {
             val l = if (daiban.id != null) {
                 //修改待办
