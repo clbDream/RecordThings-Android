@@ -20,7 +20,7 @@
 | ![](picture/Screenshot_20221023_195743.png) |  |
 |--|--|
 | ![](picture/Screenshot_20221023_195812.png) | ![](picture/Screenshot_20221023_195827.png) |
-|--|--|
+|--|--|--|
 | ![](picture/Screenshot_20221023_195842.png) | ![](picture/Screenshot_20221023_195858.png) | ![](picture/Screenshot_20221023_195905.png) |
 
 ## 涉及到的技能
