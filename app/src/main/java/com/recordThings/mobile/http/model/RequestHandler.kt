@@ -9,7 +9,7 @@ import com.recordThings.mobile.R
 import com.recordThings.mobile.http.exception.ResultException
 import com.recordThings.mobile.http.exception.TokenException
 import com.recordThings.mobile.manager.ActivityManager
-import com.recordThings.mobile.ui.activity.LoginActivity
+//import com.recordThings.mobile.ui.activity.LoginActivity
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.http.EasyLog
 import com.hjq.http.config.IRequestHandler
@@ -121,11 +121,11 @@ class RequestHandler constructor(private val application: Application) : IReques
             if (e is TokenException) {
                 // 登录信息失效，跳转到登录页
                 val application: Application = ActivityManager.getInstance().getApplication()
-                val intent = Intent(application, LoginActivity::class.java)
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                application.startActivity(intent)
+//                val intent = Intent(application, LoginActivity::class.java)
+//                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                application.startActivity(intent)
                 // 销毁除了登录页之外的 Activity
-                ActivityManager.getInstance().finishAllActivities(LoginActivity::class.java)
+//                ActivityManager.getInstance().finishAllActivities(LoginActivity::class.java)
             }
             return e
         }

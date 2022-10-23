@@ -24,8 +24,6 @@ import com.recordThings.mobile.other.*
 import com.hjq.gson.factory.GsonFactory
 import com.hjq.http.EasyConfig
 import com.hjq.toast.ToastUtils
-import com.hjq.umeng.UmengClient
-import com.recordThings.mobile.db.AppDataBase
 import com.recordThings.mobile.db.DbHelper
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.scwang.smart.refresh.layout.api.RefreshLayout
@@ -108,7 +106,7 @@ class AppApplication : Application() {
             CrashHandler.register(application)
 
             // 友盟统计、登录、分享 SDK
-            UmengClient.init(application, AppConfig.isLogEnable())
+//            UmengClient.init(application, AppConfig.isLogEnable())
 
             // Bugly 异常捕捉
             CrashReport.initCrashReport(application, AppConfig.getBuglyId(), AppConfig.isDebug())
@@ -133,7 +131,7 @@ class AppApplication : Application() {
                 // 设置请求重试次数
                 .setRetryCount(1)
                 .addHeader("token", "666")
-                .addHeader("deviceOaid", UmengClient.getDeviceOaid())
+//                .addHeader("deviceOaid", UmengClient.getDeviceOaid())
                 .addHeader("versionName", AppConfig.getVersionName())
                 .addHeader("versionCode", AppConfig.getVersionCode().toString())
                 .into()
