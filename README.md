@@ -15,12 +15,18 @@
 
 ![img.png](picture/img.png)
 
+1. - [x] 灵感
+2. - [x] 待办
+3. - [ ] 记录账单
+4. - [ ] 记录运动
+5. ...
+ 
 ## 功能页面
 
+|主页面|  |  |
 | ![](picture/Screenshot_20221023_195743.png) |  |  |
 |--|--|--|
 | ![](picture/Screenshot_20221023_195812.png) | ![](picture/Screenshot_20221023_195827.png) |
-|--|--|--|
 | ![](picture/Screenshot_20221023_195842.png) | ![](picture/Screenshot_20221023_195858.png) | ![](picture/Screenshot_20221023_195905.png) |
 
 
