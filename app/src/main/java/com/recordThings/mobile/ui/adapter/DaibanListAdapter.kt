@@ -45,6 +45,13 @@ class DaibanListAdapter(val mContext: Context) : AppAdapter<Daiban>(mContext) {
 //                daiban_content?.paintFlags = Paint.STRIKE_THRU_TEXT_FLAG.inv()
 //            }
 
+            getItemView().setOnClickListener {
+                val bundle = Bundle()
+                bundle.putParcelable("data", getItem(position))
+                val intent = Intent(mContext, EditDaibanActivity::class.java)
+                intent.putExtras(bundle)
+                ActivityUtils.startActivity(intent)
+            }
             getItemView().setOnLongClickListener {
                 showMenu(it, position)
                 true
