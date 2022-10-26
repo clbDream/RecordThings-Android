@@ -139,6 +139,7 @@ abstract class AppAdapter<T> constructor(context: Context) :
     open fun removeItem(@IntRange(from = 0) position: Int) {
         dataSet.removeAt(position)
         notifyItemRemoved(position)
+        notifyItemRangeChanged(position, getCount() - position)
     }
 
     /**

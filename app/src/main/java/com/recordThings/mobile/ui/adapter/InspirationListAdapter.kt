@@ -55,6 +55,7 @@ class InspirationListAdapter(val mContext: Context) : AppAdapter<Inspiration>(mC
     }
 
     private fun showMenu(view: View, position: Int) {
+        val inspiration = getItem(position)
         XPopup.Builder(mContext)
             .isDestroyOnDismiss(true)
             .hasShadowBg(false)
@@ -65,16 +66,16 @@ class InspirationListAdapter(val mContext: Context) : AppAdapter<Inspiration>(mC
                 when (text) {
                     "修改" -> {
                         val bundle = Bundle()
-                        bundle.putParcelable("data",getItem(position))
+                        bundle.putParcelable("data", inspiration)
                         val intent = Intent(mContext,EditInspirationActivity::class.java)
                         intent.putExtras(bundle)
                         startActivity( intent)
                     }
                     "删除" -> {
                         thread {
-                            DbHelper.db.inspirationDao().delInspiration(getItem(position))
+                            DbHelper.db.inspirationDao().delInspiration(inspiration)
                         }
-                        removeItem(getItem(position))
+                        removeItem(inspiration)
                     }
                     else -> {}
                 }

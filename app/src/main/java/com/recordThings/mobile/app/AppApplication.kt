@@ -148,24 +148,24 @@ class AppApplication : Application() {
             }
 
             // 注册网络状态变化监听
-            val connectivityManager: ConnectivityManager? =
-                ContextCompat.getSystemService(application, ConnectivityManager::class.java)
-            if (connectivityManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                connectivityManager.registerDefaultNetworkCallback(object :
-                    ConnectivityManager.NetworkCallback() {
-                    override fun onLost(network: Network) {
-                        val topActivity: Activity? = ActivityManager.getInstance().getTopActivity()
-                        if (topActivity !is LifecycleOwner) {
-                            return
-                        }
-                        val lifecycleOwner: LifecycleOwner = topActivity
-                        if (lifecycleOwner.lifecycle.currentState != Lifecycle.State.RESUMED) {
-                            return
-                        }
-                        ToastUtils.show(R.string.common_network_error)
-                    }
-                })
-            }
+//            val connectivityManager: ConnectivityManager? =
+//                ContextCompat.getSystemService(application, ConnectivityManager::class.java)
+//            if (connectivityManager != null && Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                connectivityManager.registerDefaultNetworkCallback(object :
+//                    ConnectivityManager.NetworkCallback() {
+//                    override fun onLost(network: Network) {
+//                        val topActivity: Activity? = ActivityManager.getInstance().getTopActivity()
+//                        if (topActivity !is LifecycleOwner) {
+//                            return
+//                        }
+//                        val lifecycleOwner: LifecycleOwner = topActivity
+//                        if (lifecycleOwner.lifecycle.currentState != Lifecycle.State.RESUMED) {
+//                            return
+//                        }
+//                        ToastUtils.show(R.string.common_network_error)
+//                    }
+//                })
+//            }
         }
     }
 }

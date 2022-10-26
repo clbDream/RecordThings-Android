@@ -84,7 +84,7 @@ class DaibanListAdapter(val mContext: Context) : AppAdapter<Daiban>(mContext) {
                     "未完成" -> {
                         thread {
                             daiban.is_finish = false
-                            DbHelper.db.daibanDao().delDaiban(daiban)
+                            DbHelper.db.daibanDao().upDateDaiban(daiban)
                         }
                         removeItem(daiban)
                     }
@@ -96,7 +96,7 @@ class DaibanListAdapter(val mContext: Context) : AppAdapter<Daiban>(mContext) {
                     }
                     "修改" -> {
                         val bundle = Bundle()
-                        bundle.putParcelable("data", getItem(position))
+                        bundle.putParcelable("data", daiban)
                         val intent = Intent(mContext, EditDaibanActivity::class.java)
                         intent.putExtras(bundle)
                         ActivityUtils.startActivity(intent)
