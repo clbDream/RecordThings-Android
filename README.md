@@ -23,7 +23,6 @@
  
 ## 功能页面
 
-|主页面|  |  |
 | ![](picture/Screenshot_20221023_195743.png) |  |  |
 |--|--|--|
 | ![](picture/Screenshot_20221023_195812.png) | ![](picture/Screenshot_20221023_195827.png) |

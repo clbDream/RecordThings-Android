@@ -13,20 +13,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="编辑灵感"
+        app:title="编辑待办"
         app:rightTitle="保存"
         app:titleColor="@color/white" />
 
     <com.hjq.shape.view.ShapeEditText
         android:id="@+id/input_content"
-        android:hint="有时候,一瞬间的灵感会带给你意想不到的惊喜\n(120字以内)"
+        android:hint="好记性不如烂笔头\n(120字以内)"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="start"
         android:maxLength="120"
         android:maxLines="10"
         android:minLines="5"
-        tools:text="灵感编辑处灵感编辑处灵感编辑处灵感编辑处灵感编辑处灵感编辑处"
         android:textSize="@dimen/sp_15"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
