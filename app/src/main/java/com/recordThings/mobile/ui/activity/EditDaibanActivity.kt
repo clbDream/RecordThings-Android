@@ -4,13 +4,17 @@ import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
 import com.hjq.base.BaseDialog
+import com.hjq.permissions.Permission
+import com.hjq.permissions.XXPermissions
 import com.hjq.shape.view.ShapeEditText
 import com.hjq.widget.layout.SettingBar
 import com.recordThings.mobile.R
+import com.recordThings.mobile.aop.Permissions
 import com.recordThings.mobile.app.AppActivity
 import com.recordThings.mobile.db.DbHelper
 import com.recordThings.mobile.db.entities.Daiban
 import com.recordThings.mobile.ui.dialog.TimeDialog
+import com.recordThings.mobile.utils.CalendarReminderUtils
 import java.util.*
 import kotlin.concurrent.thread
 
@@ -26,6 +30,7 @@ class EditDaibanActivity : AppActivity() {
     }
 
     override fun initView() {
+        requestPermission()
         setOnClickListener(chooseTime)
         val bundle = getBundle()
         daiban = bundle?.getParcelable("data") ?: Daiban()
@@ -58,6 +63,14 @@ class EditDaibanActivity : AppActivity() {
             toast("您还没有输入内容哦!")
             return
         }
+        if (daiban.reminder_time > 0) {
+            //判断是否同意日历权限
+            val granted = XXPermissions.isGranted(this, Permission.WRITE_CALENDAR,Permission.READ_CALENDAR)
+            if (granted.not()) {
+                requestPermission()
+                return
+            }
+        }
         thread {
             val l = if (daiban.id != null) {
                 //修改待办
@@ -65,6 +78,15 @@ class EditDaibanActivity : AppActivity() {
                 DbHelper.db.daibanDao().upDateDaiban(daiban).toLong()
             } else {
                 DbHelper.db.daibanDao().addDaiban(daiban)
+            }
+            if (daiban.reminder_time > 0) {
+                CalendarReminderUtils.addCalendarEvent(
+                    this,
+                    daiban.content,
+                    "待办提醒",
+                    daiban.reminder_time,
+                    0
+                )
             }
             if (l > 0) {
                 toast("保存成功")
@@ -129,5 +151,10 @@ class EditDaibanActivity : AppActivity() {
                 }
             })
             .show()
+    }
+
+    @Permissions(Permission.WRITE_CALENDAR,Permission.READ_CALENDAR)
+    private fun requestPermission() {
+
     }
 }
