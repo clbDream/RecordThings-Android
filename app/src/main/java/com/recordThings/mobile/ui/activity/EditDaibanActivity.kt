@@ -15,6 +15,7 @@ import com.recordThings.mobile.db.DbHelper
 import com.recordThings.mobile.db.entities.Daiban
 import com.recordThings.mobile.ui.dialog.TimeDialog
 import com.recordThings.mobile.utils.CalendarReminderUtils
+import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.concurrent.thread
 
@@ -37,6 +38,9 @@ class EditDaibanActivity : AppActivity() {
         daiban.content.let {
             inputContent?.setText(it)
             it?.length?.let { it1 -> inputContent?.setSelection(it1) }
+        }
+        if (daiban.reminder_time > 0) {
+            chooseTime?.setRightText("${SimpleDateFormat("kk时mm分ss秒").format(daiban.reminder_time)}")
         }
         inputContent?.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -65,7 +69,8 @@ class EditDaibanActivity : AppActivity() {
         }
         if (daiban.reminder_time > 0) {
             //判断是否同意日历权限
-            val granted = XXPermissions.isGranted(this, Permission.WRITE_CALENDAR,Permission.READ_CALENDAR)
+            val granted =
+                XXPermissions.isGranted(this, Permission.WRITE_CALENDAR, Permission.READ_CALENDAR)
             if (granted.not()) {
                 requestPermission()
                 return
@@ -132,7 +137,7 @@ class EditDaibanActivity : AppActivity() {
                     chooseTime?.setRightText(
                         hour.toString() + getString(R.string.common_hour) + minute + getString(
                             R.string.common_minute
-                        ) + second + getString(R.string.common_second) + "后提醒"
+                        ) + second + getString(R.string.common_second)
                     )
 
                     // 如果不指定年月日则默认为今天的日期
@@ -153,7 +158,7 @@ class EditDaibanActivity : AppActivity() {
             .show()
     }
 
-    @Permissions(Permission.WRITE_CALENDAR,Permission.READ_CALENDAR)
+    @Permissions(Permission.WRITE_CALENDAR, Permission.READ_CALENDAR)
     private fun requestPermission() {
 
     }
