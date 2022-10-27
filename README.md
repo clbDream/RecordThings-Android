@@ -2,6 +2,8 @@
 # 事迹
 事迹,记录每一件事
 
+[![download.png](picture/img_googleplay_download.png)](https://play.google.com/store/apps/details?id=com.recordThings.mobile)
+
 ![ic_launcher-playstore.png](app/src/main/ic_launcher-playstore.png)
 
 ## 简介
