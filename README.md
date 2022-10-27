@@ -1,10 +1,16 @@
 
 # 事迹
+<p align="center">
+    <img src="https://img.shields.io/github/issues/clbDream/RecordThings-Android" />
+    <img src="https://img.shields.io/github/forks/clbDream/RecordThings-Android" />
+    <img src="https://img.shields.io/github/stars/clbDream/RecordThings-Android" />
+</p>
+
 事迹,记录每一件事
 
 [![download.png](picture/img_googleplay_download.png)](https://play.google.com/store/apps/details?id=com.recordThings.mobile)
 
-![ic_launcher-playstore.png](app/src/main/ic_launcher-playstore.png)
+[comment]: <> (![ic_launcher-playstore.png]&#40;app/src/main/ic_launcher-playstore.png&#41;)
 
 ## 简介
 
