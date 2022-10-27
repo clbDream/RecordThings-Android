@@ -9,6 +9,7 @@
 </p>
 
 下载地址
+
 [![download.png](picture/img_googleplay_download.png)](https://play.google.com/store/apps/details?id=com.recordThings.mobile)
 
 [comment]: <> (![ic_launcher-playstore.png]&#40;app/src/main/ic_launcher-playstore.png&#41;)
