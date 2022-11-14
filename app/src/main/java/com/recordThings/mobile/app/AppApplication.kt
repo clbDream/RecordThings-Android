@@ -1,30 +1,23 @@
 package com.recordThings.mobile.app
 
-import android.app.Activity
 import android.app.Application
 import android.content.Context
-import android.net.ConnectivityManager
-import android.net.Network
-import android.os.Build
+import android.content.res.Resources
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleOwner
-import androidx.room.Database
-import androidx.room.Room
 import com.google.gson.reflect.TypeToken
 import com.google.gson.stream.JsonToken
 import com.hjq.bar.TitleBar
+import com.hjq.gson.factory.GsonFactory
+import com.hjq.http.EasyConfig
+import com.hjq.toast.ToastUtils
 import com.recordThings.mobile.R
 import com.recordThings.mobile.aop.Log
+import com.recordThings.mobile.db.DbHelper
 import com.recordThings.mobile.http.glide.GlideApp
 import com.recordThings.mobile.http.model.RequestHandler
 import com.recordThings.mobile.http.model.RequestServer
 import com.recordThings.mobile.manager.ActivityManager
 import com.recordThings.mobile.other.*
-import com.hjq.gson.factory.GsonFactory
-import com.hjq.http.EasyConfig
-import com.hjq.toast.ToastUtils
-import com.recordThings.mobile.db.DbHelper
 import com.scwang.smart.refresh.layout.SmartRefreshLayout
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.tencent.bugly.crashreport.CrashReport
@@ -43,6 +36,7 @@ class AppApplication : Application() {
     @Log("启动耗时")
     override fun onCreate() {
         super.onCreate()
+        INSTANCE = this
         DbHelper.init(applicationContext)
         initSdk(this)
     }
@@ -166,6 +160,12 @@ class AppApplication : Application() {
 //                    }
 //                })
 //            }
+        }
+
+        private lateinit var INSTANCE: AppApplication
+
+        fun getApp(): Application {
+            return INSTANCE
         }
     }
 }

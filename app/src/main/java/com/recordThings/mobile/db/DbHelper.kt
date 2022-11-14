@@ -2,6 +2,8 @@ package com.recordThings.mobile.db
 
 import android.content.Context
 import androidx.room.Room
+import com.recordThings.mobile.db.datasource.SportClassInitCreator
+import kotlin.concurrent.thread
 
 /**
  * 数据库工具类
@@ -12,7 +14,18 @@ object DbHelper {
 
     fun init(context: Context) {
         db = Room.databaseBuilder(context, AppDataBase::class.java, "Record_Things_db")
-            .build()
+                .build()
+    }
+
+    /**
+     * 初始化运动分类数据
+     */
+    fun initSportClass() {
+        thread {
+            if (db.sportDao().getSportClassCount() < 1) {
+                db.sportDao().insertSportClass(SportClassInitCreator.createSportClassData())
+            }
+        }
     }
 
 }

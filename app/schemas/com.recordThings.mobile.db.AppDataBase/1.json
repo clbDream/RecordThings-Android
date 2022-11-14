@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8e89e6f7635821f0989b4f0b1dae7bae",
+    "identityHash": "1adda65e355ef141b525697881a2de47",
     "entities": [
       {
         "tableName": "t_inspiration",
@@ -103,12 +103,44 @@
         },
         "indices": [],
         "foreignKeys": []
+      },
+      {
+        "tableName": "t_sport_class",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT, `className` TEXT, `classIcon` TEXT)",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": false
+          },
+          {
+            "fieldPath": "className",
+            "columnName": "className",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "classIcon",
+            "columnName": "classIcon",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "columnNames": [
+            "id"
+          ],
+          "autoGenerate": true
+        },
+        "indices": [],
+        "foreignKeys": []
       }
     ],
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8e89e6f7635821f0989b4f0b1dae7bae')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '1adda65e355ef141b525697881a2de47')"
     ]
   }
 }

@@ -28,7 +28,7 @@ class MainActivity : AppActivity() {
     }
 
     override fun initData() {
-
+        DbHelper.initSportClass()
     }
 
     override fun isStatusBarEnabled(): Boolean {
