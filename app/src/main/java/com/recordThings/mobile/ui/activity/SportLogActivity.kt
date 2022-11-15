@@ -41,7 +41,11 @@ class SportLogActivity : AppActivity() {
             val allSportTime = DbHelper.db.sportDao().getAllSportTime()
             allSportTime.collect { value ->
                 runOnUiThread {
-                    sport_time?.text = "${value}分钟"
+                    if (value == null) {
+                        sport_time?.text = "${0}分钟"
+                    } else {
+                        sport_time?.text = "${value}分钟"
+                    }
                 }
             }
         }

@@ -56,5 +56,5 @@ interface SportDao {
      * 查询所有运动时长
      */
     @Query("select sum(sport_time) from t_sport_log")
-    fun getAllSportTime(): Flow<Long>
+    fun getAllSportTime(): Flow<Long?>
 }
