@@ -14,6 +14,7 @@ object DbHelper {
 
     fun init(context: Context) {
         db = Room.databaseBuilder(context, AppDataBase::class.java, "Record_Things_db")
+                .fallbackToDestructiveMigration()
                 .build()
     }
 
