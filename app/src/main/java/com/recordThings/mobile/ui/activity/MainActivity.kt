@@ -14,8 +14,10 @@ class MainActivity : AppActivity() {
 
     private val addInspiration: ShapeButton? by lazy { findViewById(R.id.add_inspiration) }
     private val add_daiban: ShapeButton? by lazy { findViewById(R.id.add_daiban) }
+    private val add_sport: ShapeButton? by lazy { findViewById(R.id.add_sport) }
     private val lingganNum: TextView? by lazy { findViewById(R.id.linggan_num) }
     private val daiban_num: TextView? by lazy { findViewById(R.id.daiban_num) }
+    private val sport_num: TextView? by lazy { findViewById(R.id.sport_num) }
     private val layout_linggan: ShapeLinearLayout? by lazy { findViewById(R.id.layout_linggan) }
     private val layout_daiban: ShapeLinearLayout? by lazy { findViewById(R.id.layout_daiban) }
 
@@ -24,7 +26,7 @@ class MainActivity : AppActivity() {
     }
 
     override fun initView() {
-        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban)
+        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban,add_sport)
     }
 
     override fun initData() {
@@ -50,6 +52,9 @@ class MainActivity : AppActivity() {
             add_daiban -> {
                 startActivity(EditDaibanActivity::class.java)
             }
+            add_sport->{
+                startActivity(AddSportActivity::class.java)
+            }
             else -> {}
         }
     }
@@ -59,9 +64,11 @@ class MainActivity : AppActivity() {
         thread {
             val allInspirationNum = DbHelper.db.inspirationDao().getAllInspirationNum()
             val allDaibanNum = DbHelper.db.daibanDao().getAllDaibanNum(false)
+            val sportCountToday = DbHelper.db.sportDao().getSportCount()
             runOnUiThread {
                 lingganNum?.text = allInspirationNum.toString()
                 daiban_num?.text = allDaibanNum.toString()
+                sport_num?.text = sportCountToday.toString()
             }
         }
     }

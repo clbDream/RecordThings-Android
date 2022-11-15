@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ll_type_item_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="10dp"
+    android:paddingBottom="10dp"
+    tools:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="62dp"
+        android:layout_height="56dp"
+        android:paddingLeft="5dp">
+
+        <ImageView
+            android:id="@+id/sport_icon"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            tools:src="@drawable/sport_class_paobu" />
+
+        <ImageView
+            android:id="@+id/check_item"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_check" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/sport_name"
+        android:layout_marginTop="@dimen/dp_5"
+        android:textColor="#DDDDDD"
+        android:textSize="@dimen/sp_14"
+        tools:text="跑步"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

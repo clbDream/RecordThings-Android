@@ -15,4 +15,6 @@ class SportClass(
         @ColumnInfo(name = "className") var className: String? = "",
         //分类图标
         @ColumnInfo(name = "classIcon") var classIcon: String? = "",
+        //是否选中
+        var isChecked: Boolean = false
 ) : Parcelable
