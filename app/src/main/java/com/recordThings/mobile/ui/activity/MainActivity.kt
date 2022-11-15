@@ -20,13 +20,14 @@ class MainActivity : AppActivity() {
     private val sport_num: TextView? by lazy { findViewById(R.id.sport_num) }
     private val layout_linggan: ShapeLinearLayout? by lazy { findViewById(R.id.layout_linggan) }
     private val layout_daiban: ShapeLinearLayout? by lazy { findViewById(R.id.layout_daiban) }
+    private val layout_sport: ShapeLinearLayout? by lazy { findViewById(R.id.layout_sport) }
 
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
     override fun initView() {
-        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban,add_sport)
+        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban,add_sport,layout_sport)
     }
 
     override fun initData() {
@@ -54,6 +55,9 @@ class MainActivity : AppActivity() {
             }
             add_sport->{
                 startActivity(AddSportActivity::class.java)
+            }
+            layout_sport->{
+                startActivity(SportLogActivity::class.java)
             }
             else -> {}
         }

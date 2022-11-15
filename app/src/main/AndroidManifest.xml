@@ -257,6 +257,7 @@
         <activity android:name=".ui.activity.EditDaibanActivity" />
         <activity android:name=".ui.activity.DaibanListActivity" />
         <activity android:name=".ui.activity.AddSportActivity" />
+        <activity android:name=".ui.activity.SportLogActivity" />
 
     </application>
 

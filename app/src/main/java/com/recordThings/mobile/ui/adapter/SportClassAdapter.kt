@@ -24,7 +24,7 @@ class SportClassAdapter(val mContext: Context) : AppAdapter<SportClass>(mContext
         override fun onBindView(position: Int) {
             val item = getItem(position)
 
-            val iconId = mContext.getResources().getIdentifier(item.classIcon, "drawable", mContext.getPackageName());
+            val iconId = mContext.resources.getIdentifier(item.classIcon, "drawable", mContext.packageName)
             sportIcon?.setImageResource(iconId)
 
             sportName?.text = item.className
