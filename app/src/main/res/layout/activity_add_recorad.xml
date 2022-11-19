@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
@@ -11,22 +12,25 @@
         android:background="@color/colorPrimary"
         android:orientation="vertical">
 
-        <include
-            android:id="@+id/title_bar"
-            layout="@layout/layout_title_bar" />
+       <com.hjq.bar.TitleBar
+           app:titleColor="@color/white"
+           android:background="@null"
+           app:title="添加账单"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"/>
 
         <include
             android:id="@+id/type_choice"
             layout="@layout/layout_type_choice" />
 
-        <androidx.viewpager.widget.ViewPager
+        <com.recordThings.mobile.widget.TypePageView
             android:id="@+id/type_page_outlay"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:visibility="visible"/>
 
-        <androidx.viewpager.widget.ViewPager
+        <com.recordThings.mobile.widget.TypePageView
             android:id="@+id/type_page_income"
             android:layout_width="match_parent"
             android:layout_height="0dp"

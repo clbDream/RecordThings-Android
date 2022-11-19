@@ -23,7 +23,7 @@
 
     <string name="common_video_error_not_support">该视频不适合在此设备上播放</string>
     <string name="common_video_error_unknown">无法播放此视频</string>
-    <string name="common_video_error_supplement">错误类型：%d，错误代码：%d</string>
+    <string name="common_video_error_supplement" formatted="false">错误类型：%d，错误代码：%d</string>
 
     <string name="common_phone_input_hint">请输入手机号码</string>
     <string name="common_phone_input_error">手机号输入不正确</string>
@@ -334,10 +334,10 @@
     <string name="text_order">账单</string>
     <string name="text_reports">报表</string>
     <string name="text_money_symbol">¥</string>
-    <string name="text_month_outlay_symbol">支出&#160;¥</string>
-    <string name="text_month_income_symbol">收入&#160;¥</string>
+    <string name="text_month_outlay_symbol" formatted="false">支出&#160;¥</string>
+    <string name="text_month_income_symbol" formatted="false">收入&#160;¥</string>
     <string name="text_unit_account">笔</string>
-    <string name="text_day">日&#160;</string>
+    <string name="text_day" formatted="false">日&#160;</string>
     <string name="text_choose_month">选择月份</string>
     <string name="text_sort_time">按时间</string>
     <string name="text_sort_money">按金额</string>

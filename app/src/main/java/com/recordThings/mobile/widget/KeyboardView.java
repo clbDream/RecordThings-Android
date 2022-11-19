@@ -46,19 +46,8 @@ public class KeyboardView extends LinearLayout {
 
     private OnAffirmClickListener mOnAffirmClickListener;
     private EditText editInput;
-    private TextView keyboardNum0;
-    private TextView keyboardNum1;
-    private TextView keyboardNum2;
-    private TextView keyboardNum3;
-    private TextView keyboardNum4;
-    private TextView keyboardNum5;
-    private TextView keyboardNum6;
-    private TextView keyboardNum7;
-    private TextView keyboardNum8;
-    private TextView keyboardNum9;
     private TextView keyboardAffirm;
-    private TextView keyboardNumPoint;
-    private TextView keyboardDelete;
+
     public KeyboardView(Context context) {
         this(context, null);
     }
@@ -104,57 +93,61 @@ public class KeyboardView extends LinearLayout {
 
     @SuppressLint("ClickableViewAccessibility")
     private void init(Context context) {
-        // 当前 activity 打开时不弹出软键盘
-        Activity activity = (Activity) context;
-        activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-        setOrientation(VERTICAL);
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_keyboard, this, true);
-        editInput = view.findViewById(R.id.edit_input);
-        keyboardNum0 = view.findViewById(R.id.keyboard_num_0);
-        keyboardNum1 = view.findViewById(R.id.keyboard_num_1);
-        keyboardNum2 = view.findViewById(R.id.keyboard_num_2);
-        keyboardNum3 = view.findViewById(R.id.keyboard_num_3);
-        keyboardNum4 = view.findViewById(R.id.keyboard_num_4);
-        keyboardNum5 = view.findViewById(R.id.keyboard_num_5);
-        keyboardNum6 = view.findViewById(R.id.keyboard_num_6);
-        keyboardNum7 = view.findViewById(R.id.keyboard_num_7);
-        keyboardNum8 = view.findViewById(R.id.keyboard_num_8);
-        keyboardNum9 = view.findViewById(R.id.keyboard_num_9);
-        keyboardAffirm = view.findViewById(R.id.keyboard_affirm);
-        keyboardNumPoint = view.findViewById(R.id.keyboard_num_point);
-        keyboardDelete = view.findViewById(R.id.keyboard_delete);
+        try {
+            View view = LayoutInflater.from(getContext()).inflate(R.layout.layout_keyboard, this, true);
+            // 当前 activity 打开时不弹出软键盘
+            Activity activity = (Activity) context;
+            activity.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
+            setOrientation(VERTICAL);
+            editInput = view.findViewById(R.id.edit_input);
+            TextView keyboardNum0 = view.findViewById(R.id.keyboard_num_0);
+            TextView keyboardNum1 = view.findViewById(R.id.keyboard_num_1);
+            TextView keyboardNum2 = view.findViewById(R.id.keyboard_num_2);
+            TextView keyboardNum3 = view.findViewById(R.id.keyboard_num_3);
+            TextView keyboardNum4 = view.findViewById(R.id.keyboard_num_4);
+            TextView keyboardNum5 = view.findViewById(R.id.keyboard_num_5);
+            TextView keyboardNum6 = view.findViewById(R.id.keyboard_num_6);
+            TextView keyboardNum7 = view.findViewById(R.id.keyboard_num_7);
+            TextView keyboardNum8 = view.findViewById(R.id.keyboard_num_8);
+            TextView keyboardNum9 = view.findViewById(R.id.keyboard_num_9);
+            keyboardAffirm = view.findViewById(R.id.keyboard_affirm);
+            TextView keyboardNumPoint = view.findViewById(R.id.keyboard_num_point);
+            TextView keyboardDelete = view.findViewById(R.id.keyboard_delete);
 
-        editInput.requestFocus();
-        editInput.setOnTouchListener((v, event) -> {
-            SoftInputUtils.hideSoftInput(editInput);
             editInput.requestFocus();
-            // 返回 true，拦截了默认的点击和长按操作，这是一个妥协的做法
-            // 不再考虑多选粘贴的情况
-            return true;
-        });
+            editInput.setOnTouchListener((v, event) -> {
+                SoftInputUtils.hideSoftInput(editInput);
+                editInput.requestFocus();
+                // 返回 true，拦截了默认的点击和长按操作，这是一个妥协的做法
+                // 不再考虑多选粘贴的情况
+                return true;
+            });
 
-        setInputTextViews(keyboardNum0, keyboardNum1,
-                keyboardNum2, keyboardNum3,
-                keyboardNum4, keyboardNum5,
-                keyboardNum6, keyboardNum7,
-                keyboardNum8, keyboardNum9,
-                keyboardNumPoint);
-        setDeleteView(keyboardDelete);
+            setInputTextViews(keyboardNum0, keyboardNum1,
+                    keyboardNum2, keyboardNum3,
+                    keyboardNum4, keyboardNum5,
+                    keyboardNum6, keyboardNum7,
+                    keyboardNum8, keyboardNum9,
+                    keyboardNumPoint);
+            setDeleteView(keyboardDelete);
 
-        keyboardAffirm.setOnClickListener(v -> {
-            if (mOnAffirmClickListener != null) {
-                String text = editInput.getText().toString();
-                boolean isDigital = !TextUtils.isEmpty(text)
-                        && !TextUtils.equals("0", text)
-                        && !TextUtils.equals("0.", text);
-                if (!isDigital) {
-                    Animation animation = AnimationUtils.loadAnimation(AppApplication.Companion.getApp(), R.anim.shake);
-                    editInput.startAnimation(animation);
-                } else {
-                    mOnAffirmClickListener.onAffirmClick(text);
+            keyboardAffirm.setOnClickListener(v -> {
+                if (mOnAffirmClickListener != null) {
+                    String text = editInput.getText().toString();
+                    boolean isDigital = !TextUtils.isEmpty(text)
+                            && !TextUtils.equals("0", text)
+                            && !TextUtils.equals("0.", text);
+                    if (!isDigital) {
+                        Animation animation = AnimationUtils.loadAnimation(AppApplication.Companion.getApp(), R.anim.shake);
+                        editInput.startAnimation(animation);
+                    } else {
+                        mOnAffirmClickListener.onAffirmClick(text);
+                    }
                 }
-            }
-        });
+            });
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
