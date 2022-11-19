@@ -112,7 +112,8 @@
         </com.hjq.shape.layout.ShapeLinearLayout>
 
         <com.hjq.shape.layout.ShapeLinearLayout
-            android:visibility="invisible"
+            android:id="@+id/all_bills"
+            android:visibility="visible"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/dp_5"
@@ -126,7 +127,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="待办"
+                android:text="全部账单"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_22" />
 
@@ -135,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="0"
+                android:visibility="invisible"
                 android:textColor="@color/white"
                 android:textSize="@dimen/sp_25"
                 android:textStyle="bold" />

@@ -21,13 +21,14 @@ class MainActivity : AppActivity() {
     private val layout_linggan: ShapeLinearLayout? by lazy { findViewById(R.id.layout_linggan) }
     private val layout_daiban: ShapeLinearLayout? by lazy { findViewById(R.id.layout_daiban) }
     private val layout_sport: ShapeLinearLayout? by lazy { findViewById(R.id.layout_sport) }
+    private val all_bills: ShapeLinearLayout? by lazy { findViewById(R.id.all_bills) }
 
     override fun getLayoutId(): Int {
         return R.layout.activity_main
     }
 
     override fun initView() {
-        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban,add_sport,layout_sport)
+        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban,add_sport,layout_sport,all_bills)
     }
 
     override fun initData() {
@@ -58,6 +59,9 @@ class MainActivity : AppActivity() {
             }
             layout_sport->{
                 startActivity(SportLogActivity::class.java)
+            }
+            all_bills->{
+                startActivity(AllBillsActivity::class.java)
             }
             else -> {}
         }
