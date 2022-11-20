@@ -24,14 +24,24 @@ interface RecordDao {
 
     @Transaction
     @Query("SELECT record.* from record LEFT JOIN RecordType ON record.record_type_id=RecordType.id WHERE (RecordType.type=:type AND record.record_type_id=:typeId AND time BETWEEN :from AND :to) ORDER BY time DESC, create_time DESC")
-    fun getRangeRecordWithTypes(from: Date?, to: Date?, type: Int, typeId: Int): Flow<List<RecordWithType?>?>?
+    fun getRangeRecordWithTypes(
+        from: Date?,
+        to: Date?,
+        type: Int,
+        typeId: Int
+    ): Flow<List<RecordWithType?>?>?
 
     @Transaction
     @Query("SELECT record.* from record LEFT JOIN RecordType ON record.record_type_id=RecordType.id WHERE (RecordType.type=:type AND record.record_type_id=:typeId AND time BETWEEN :from AND :to) ORDER BY money DESC, create_time DESC")
-    fun getRecordWithTypesSortMoney(from: Date?, to: Date?, type: Int, typeId: Int): Flow<List<RecordWithType?>?>?
+    fun getRecordWithTypesSortMoney(
+        from: Date?,
+        to: Date?,
+        type: Int,
+        typeId: Int
+    ): Flow<List<RecordWithType?>?>?
 
     @Insert
-    fun insertRecord(record: Record?)
+    fun insertRecord(record: Record?): Long
 
     @Update
     fun updateRecords(vararg records: Record?)

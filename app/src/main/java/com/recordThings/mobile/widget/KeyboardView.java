@@ -112,7 +112,7 @@ public class KeyboardView extends LinearLayout {
             TextView keyboardNum9 = view.findViewById(R.id.keyboard_num_9);
             keyboardAffirm = view.findViewById(R.id.keyboard_affirm);
             TextView keyboardNumPoint = view.findViewById(R.id.keyboard_num_point);
-            TextView keyboardDelete = view.findViewById(R.id.keyboard_delete);
+            LinearLayout keyboardDelete = view.findViewById(R.id.keyboard_delete);
 
             editInput.requestFocus();
             editInput.setOnTouchListener((v, event) -> {
