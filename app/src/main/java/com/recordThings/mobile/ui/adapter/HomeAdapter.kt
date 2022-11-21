@@ -8,9 +8,10 @@ import android.widget.TextView
 import com.recordThings.mobile.R
 import com.recordThings.mobile.app.AppAdapter
 import com.recordThings.mobile.db.entities.RecordWithType
+import com.recordThings.mobile.utils.BigDecimalUtil
 import com.recordThings.mobile.utils.DateUtils2
 
-class HomeAdapter(mContext: Context) : AppAdapter<RecordWithType>(mContext) {
+class HomeAdapter(val mContext: Context) : AppAdapter<RecordWithType>(mContext) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AppViewHolder {
         return ViewHolder()
     }
@@ -30,10 +31,19 @@ class HomeAdapter(mContext: Context) : AppAdapter<RecordWithType>(mContext) {
 
             if (isDataShow) {
                 tv_date?.visibility = View.VISIBLE
+                tv_date?.text = DateUtils2.date2MonthDay(recordWithType.time)
             } else {
                 tv_date?.visibility = View.INVISIBLE
             }
-//            name_type?.text = recordWithType.mRecordTypes
+            val resId = mContext.resources.getIdentifier(
+                recordWithType.mRecordTypes?.get(0)?.imgName.toString(),
+                "drawable",
+                mContext.packageName
+            )
+            icon_res?.setImageResource(resId)
+            name_type?.text = recordWithType.mRecordTypes?.get(0)?.name
+            desc_beizhu?.text = recordWithType.remark
+            jine?.text = BigDecimalUtil.fen2Yuan(recordWithType.money)
         }
     }
 }
