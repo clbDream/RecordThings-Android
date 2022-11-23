@@ -214,6 +214,8 @@ dependencies {
 
     implementation 'com.wdullaer:materialdatetimepicker:3.5.1'
 
+    implementation 'com.github.PhilJay:MPAndroidChart:3.0.3'
+
     // 多语种：https://github.com/getActivity/MultiLanguages
     // 悬浮窗：https://github.com/getActivity/XToast
     // 日志输出：https://github.com/getActivity/Logcat

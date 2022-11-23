@@ -1,7 +1,6 @@
 package com.recordThings.mobile.ui.activity
 
 import android.view.View
-import android.view.View.inflate
 import android.widget.TextView
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -36,7 +35,7 @@ class AllBillsActivity: AppActivity() {
     }
 
     override fun initView() {
-        setOnClickListener(R.id.addRecord)
+        setOnClickListener(R.id.addRecord,R.id.statistics_view)
 
         rv_home?.also {
             it.layoutManager = LinearLayoutManager(this)
@@ -111,6 +110,9 @@ class AllBillsActivity: AppActivity() {
         when (view.id) {
             R.id.addRecord -> {
                 startActivity(AddRecordActivity::class.java)
+            }
+            R.id.statistics_view->{
+                startActivity(ViewStatisticsActivity::class.java)
             }
             else -> {}
         }
