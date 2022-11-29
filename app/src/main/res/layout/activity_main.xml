@@ -185,4 +185,18 @@
         android:textSize="@dimen/sp_15"
         app:shape_radius="@dimen/dp_8"
         app:shape_solidColor="@color/btn_bg" />
+
+    <com.hjq.shape.view.ShapeButton
+        android:id="@+id/add_bill"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_15"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:padding="@dimen/dp_15"
+        android:text="记录账单"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15"
+        app:shape_radius="@dimen/dp_8"
+        app:shape_solidColor="@color/btn_bg" />
 </LinearLayout>

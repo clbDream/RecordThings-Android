@@ -15,6 +15,7 @@ class MainActivity : AppActivity() {
     private val addInspiration: ShapeButton? by lazy { findViewById(R.id.add_inspiration) }
     private val add_daiban: ShapeButton? by lazy { findViewById(R.id.add_daiban) }
     private val add_sport: ShapeButton? by lazy { findViewById(R.id.add_sport) }
+    private val add_bill: ShapeButton? by lazy { findViewById(R.id.add_bill) }
     private val lingganNum: TextView? by lazy { findViewById(R.id.linggan_num) }
     private val daiban_num: TextView? by lazy { findViewById(R.id.daiban_num) }
     private val sport_num: TextView? by lazy { findViewById(R.id.sport_num) }
@@ -28,7 +29,16 @@ class MainActivity : AppActivity() {
     }
 
     override fun initView() {
-        setOnClickListener(addInspiration, layout_linggan, layout_daiban, add_daiban,add_sport,layout_sport,all_bills)
+        setOnClickListener(
+            addInspiration,
+            layout_linggan,
+            layout_daiban,
+            add_daiban,
+            add_sport,
+            layout_sport,
+            all_bills,
+            add_bill
+        )
     }
 
     override fun initData() {
@@ -54,14 +64,17 @@ class MainActivity : AppActivity() {
             add_daiban -> {
                 startActivity(EditDaibanActivity::class.java)
             }
-            add_sport->{
+            add_sport -> {
                 startActivity(AddSportActivity::class.java)
             }
-            layout_sport->{
+            layout_sport -> {
                 startActivity(SportLogActivity::class.java)
             }
-            all_bills->{
+            all_bills -> {
                 startActivity(AllBillsActivity::class.java)
+            }
+            add_bill -> {
+                startActivity(AddRecordActivity::class.java)
             }
             else -> {}
         }
