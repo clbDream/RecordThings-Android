@@ -15,6 +15,7 @@
        <com.hjq.bar.TitleBar
            app:titleColor="@color/white"
            android:background="@null"
+           app:lineVisible="false"
            app:title="添加账单"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"/>

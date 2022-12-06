@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@color/common_primary_color"
         app:title="记录运动"
+        app:lineVisible="false"
         app:titleColor="@color/white" />
 
     <androidx.recyclerview.widget.RecyclerView

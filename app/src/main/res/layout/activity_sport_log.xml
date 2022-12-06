@@ -11,6 +11,7 @@
         android:layout_height="wrap_content"
         android:background="@color/common_primary_color"
         app:title="运动记录"
+        app:lineVisible="false"
         app:titleColor="@color/white" />
 
     <com.hjq.shape.layout.ShapeLinearLayout
